@@ -27,19 +27,21 @@ Connect to the ClickHouse Server
 Create table
 
 ```sql
-CREATE TABLE IF NOT EXISTS performance (
-    tileX Float,
-    tileY Float,
-    downloadSpeedKbps UInt32,
-    uploadSpeedKbps UInt32,
-    latencyMs UInt32,
-    downloadLatencyMs UInt32,
-    uploadLatencyMs UInt32,
-    tests UInt32,
-    devices UInt16,
-) 
-Engine = MergeTree 
-ORDER BY tileX;
+CREATE TABLE IF NOT EXISTS performance
+(
+    `quadKey` String,
+    `tileX` Float,
+    `tileY` Float,
+    `downloadSpeedKbps` UInt32,
+    `uploadSpeedKbps` UInt32,
+    `latencyMs` UInt32,
+    `downloadLatencyMs` UInt32,
+    `uploadLatencyMs` UInt32,
+    `tests` UInt32,
+    `devices` UInt16
+)
+ENGINE = MergeTree
+ORDER BY tileX
 ```
 
 ## Download CSV file
